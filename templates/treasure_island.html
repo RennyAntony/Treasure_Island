@@ -1,0 +1,99 @@
+<!-- treasure_app/templates/treasure_app/treasure_island.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Island</title>
+    {% load static %}
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+        <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 2%;
+            border:1px solid cyan;
+            border-radius:10px;
+            background-color:cyan;
+        }
+
+        h1, p {
+            color:darkblue;
+            font-size:2em;
+            font-family:sans-serif;
+
+        }
+
+        .game-message {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #start-button {
+            font-size: 1.4em;
+            padding: 15px 25px;
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius:10px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Welcome to Treasure Island.</h1>
+    <p>Your mission is to find the treasure.</p>
+    <button id="start-button" onclick="startGame()">Start Game</button>
+           
+        
+    <script>
+        function startGame() {
+            alert('Game started! Now you can ask questions.');
+        var choice1 = prompt('You\'re at a crossroad. Where do you want to go? Type "left" or "right" or "straight"');
+
+        // Rest of your JavaScript code for user interaction goes here
+        if (choice1 === "left") {
+  let choice2 = prompt('You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across.').toLowerCase();
+  
+  if (choice2 === "wait") {
+    let choice3 = prompt("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow, and one blue. Which color do you choose?").toLowerCase();
+    
+    if (choice3 === "red") {
+      alert("It's a room full of fire. Game Over!!");
+    } else if (choice3 === "yellow") {
+      alert("You found the treasure! You Win!");
+    } else if (choice3 === "blue") {
+      alert("You enter a room of beasts. Game Over!!");
+    } else {
+      alert("You chose a door that doesn't exist. Game Over!!");
+    }
+  } else {
+    alert("You get attacked by an angry trout. Game Over!!");
+  }
+} else if (choice1 === "straight") {
+  let choice4 = prompt("You entered into a forest area full of wild animals. There is a cave beside you. Type 'enter' to enter the cave or 'run' to go further forward inside the forest.");
+  
+  if (choice4 === "run") {
+    alert("You got surrounded by leopards. Game Over!!");
+  } else {
+    alert("It's a lion den. You are screwed up. Game Over!!");
+  }
+} else {
+  alert("You fell into a hole. Game Over!!");
+}
+}
+
+
+    </script>
+</body>
+</html>
